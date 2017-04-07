@@ -1,0 +1,42 @@
+//Circuito que faz piscar o led, no caso, todos os leds da fpga
+/*Autores: Daniel Luis Welter da Silva
+              Gardel Gomes Batista Filho
+              Luis Henrique Wasem de Oliveira
+*/
+
+module piscaled(input CLOCK_50,output [7:0]LEDG, output[9:0]LEDR);
+    reg [32:0]cont = 0;
+    reg h_reg = 0;
+    assign LEDG[0] = ~h_reg;
+    assign LEDG[1] = h_reg;
+    assign LEDG[2] = ~h_reg;
+    assign LEDG[3] = h_reg;
+    assign LEDG[4] = ~h_reg;
+    assign LEDG[5] = h_reg;
+    assign LEDG[6] = ~h_reg;
+    assign LEDG[7] = h_reg;
+    assign LEDR[0] = ~h_reg;
+    assign LEDR[1] = h_reg;
+    assign LEDR[2] = ~h_reg;
+    assign LEDR[3] = h_reg;
+    assign LEDR[4] = ~h_reg;
+    assign LEDR[5] = h_reg;
+    assign LEDR[6] = ~h_reg;
+    assign LEDR[7] = h_reg;
+    assign LEDR[8] = ~h_reg;
+    assign LEDR[9] = h_reg;
+    
+    
+    always@(posedge CLOCK_50)
+            begin
+              if(cont == 50000000)
+                    begin
+                        h_reg <= ~h_reg;
+                        cont <= 0;
+                     end
+                else
+                     begin
+                        cont = cont + 1;
+                     end
+            end          
+endmodule
