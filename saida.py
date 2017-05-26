@@ -1,0 +1,16 @@
+inteiro
+inteiro
+inteiro
+inteiro
+inteiro
+=
+10
+10
+=
+20
+20
+=
+=
+=
+=
+print
